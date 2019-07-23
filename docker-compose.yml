@@ -1,0 +1,28 @@
+version: '3'
+services:
+  discovery:
+    image: shinyay/spring-cloud-eureka-gs:latest
+    container_name: discovery
+    expose: 
+      - "8761"
+  service:
+    image: shinyay/spring-cloud-eureka-client-gs:latest
+    container_name: service
+    expose: 
+      - "8762"
+    depends_on: 
+      - "discovery"
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
+  gateway:
+    image: shinyay/spring-cloud-eureka-gateway-gs:latest
+    container_name: gateway
+    ports:
+      - "127.0.0.1:8080:8760"
+    depends_on: 
+      - discovery
+      - service
+    environment:
+      - JAVA_OPTS=
+        -DEUREKA_SERVER=http://discovery:8761/eureka
