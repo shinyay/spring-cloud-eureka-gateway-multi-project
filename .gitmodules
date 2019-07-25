@@ -4,3 +4,6 @@
 [submodule "spring-cloud-eureka-client-getting-started"]
 	path = spring-cloud-eureka-client-getting-started
 	url = https://github.com/shinyay/spring-cloud-eureka-client-getting-started.git
+[submodule "spring-cloud-eureka-gateway-getting-started"]
+	path = spring-cloud-eureka-gateway-getting-started
+	url = https://github.com/shinyay/spring-cloud-eureka-gateway-getting-started.git
